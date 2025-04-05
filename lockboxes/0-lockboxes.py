@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 """
 Module provides function to determine if
-all lockboxes can be unlocked. 
+all lockboxes can be unlocked.
 Each box contains keys to other boxes.
 Goal is to reach all boxes starting from 0.
 """
