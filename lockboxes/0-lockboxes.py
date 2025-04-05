@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/python3
 def canUnlockAll(boxes):
     n = len(boxes)
     visited = set([0])
