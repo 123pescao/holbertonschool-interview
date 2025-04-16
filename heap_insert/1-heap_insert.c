@@ -47,9 +47,8 @@ binary_tree_t *get_node_by_index(binary_tree_t *root, size_t index)
 /**
  * heapify_up - bubbles up node to maintain max heap
  * @node: node to bubble up
- * Return: final pointer to inserted node (unchanged)
  */
-heap_t *heapify_up(heap_t *node)
+void heapify_up(heap_t *node)
 {
 	int temp;
 
@@ -60,7 +59,6 @@ heap_t *heapify_up(heap_t *node)
 		node->parent->n = temp;
 		node = node->parent;
 	}
-	return (node);
 }
 
 /**
@@ -98,7 +96,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	else
 		parent->right = new_node;
 
-	heapify_up(new_node);  /* Maintain max-heap */
+	heapify_up(new_node);  /* Maintain max-heap property */
 
-	return (new_node);  /* Return pointer to originally inserted node */
+	return (new_node);     /* Always return the inserted node */
 }
