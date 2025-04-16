@@ -1,0 +1,1 @@
+In this interview practice project we will be working with a heap insert.
