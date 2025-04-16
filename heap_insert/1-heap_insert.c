@@ -45,27 +45,29 @@ binary_tree_t *get_node_by_index(binary_tree_t *root, size_t index)
 }
 
 /**
- * swap_with_parent - swaps node value with its parent until heap is valid
+ * heapify_up - bubbles up node to maintain max heap
  * @node: node to bubble up
+ * Return: final pointer to inserted node (unchanged)
  */
-void swap_with_parent(heap_t *node)
+heap_t *heapify_up(heap_t *node)
 {
-	int tmp;
+	int temp;
 
 	while (node->parent && node->n > node->parent->n)
 	{
-		tmp = node->n;
+		temp = node->n;
 		node->n = node->parent->n;
-		node->parent->n = tmp;
+		node->parent->n = temp;
 		node = node->parent;
 	}
+	return (node);
 }
 
 /**
  * heap_insert - inserts a value into a Max Binary Heap
  * @root: double pointer to root node
  * @value: value to insert
- * Return: pointer to inserted node or NULL
+ * Return: pointer to the inserted node (not where it ends up)
  */
 heap_t *heap_insert(heap_t **root, int value)
 {
@@ -84,7 +86,6 @@ heap_t *heap_insert(heap_t **root, int value)
 	size = binary_tree_size(*root);
 	parent_index = (size - 1) / 2;
 	parent = get_node_by_index(*root, parent_index);
-
 	if (!parent)
 		return (NULL);
 
@@ -97,7 +98,7 @@ heap_t *heap_insert(heap_t **root, int value)
 	else
 		parent->right = new_node;
 
-	swap_with_parent(new_node);
+	heapify_up(new_node);  /* Maintain max-heap */
 
-	return (new_node);
+	return (new_node);  /* Return pointer to originally inserted node */
 }
