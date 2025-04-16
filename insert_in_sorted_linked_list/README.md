@@ -1,0 +1,1 @@
+In this interview practice project we are working with linked list.
