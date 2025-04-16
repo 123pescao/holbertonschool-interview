@@ -11,18 +11,21 @@ void _binary_tree_delete(binary_tree_t *tree);
 int main(void)
 {
 	heap_t *root = NULL;
-	heap_t *node;
+	int value;
 
-	node = heap_insert(&root, 98);
-	printf("Value inserted: %d\n", node->n);
+	value = 98;
+	heap_insert(&root, value);
+	printf("Value inserted: %d\n", value);
 	binary_tree_print(root);
 
-	node = heap_insert(&root, 110);
-	printf("Value inserted: %d\n", node->n);
+	value = 110;
+	heap_insert(&root, value);
+	printf("Value inserted: %d\n", value);
 	binary_tree_print(root);
 
-	node = heap_insert(&root, 43);
-	printf("Value inserted: %d\n", node->n);
+	value = 43;
+	heap_insert(&root, value);
+	printf("Value inserted: %d\n", value);
 	binary_tree_print(root);
 
 	_binary_tree_delete(root);
