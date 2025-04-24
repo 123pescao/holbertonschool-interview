@@ -1,6 +1,7 @@
 #!/usr/bin/python3
 """Minimum Operations project"""
 
+
 def minOperations(n):
     """Calculate the fewest number of operations to get n Hs"""
     if n < 2:
